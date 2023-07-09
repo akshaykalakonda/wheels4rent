@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif}
+* {box-sizing: border-box;margin:0}
+
+.bg-img {
+  /* The image used */
+    background-image: url('{% static "images/bgblack.jpg" %}');
+
+    background-color: #9fa8a3;
+  min-height: 793px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+/* Position the navbar container inside the image */
+.container {
+  position: fixed;
+  margin: 0px;
+  width: 100%;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #FBFBF9;
+}
+
+/* Navbar links */
+.topnav a {
+  float: right;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin:10px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.centered {
+  position: absolute;
+
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center{
+ margin-left: 120px;
+  margin-right: 120px;
+
+}
+#tablecolor {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tablecolor td, #tablecolor th {
+  border: 2px solid #ddd;
+
+  padding: 2px;
+}
+
+
+#tablecolor tr:nth-child(even){background-color: #f2f2f2;}
+
+#tablecolor tr:hover {background-color: #ddd;}
+
+#tablecolor th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #181818;
+  color: white;
+}
+ .button {
+  background-color: red;
+  border-radius: 5px;
+  color: red;
+  padding: 7px 11px;
+  border-color: red;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 5px 2px;
+  cursor: pointer;
+
+}
+.white-color {
+        color:white;
+ }
+</style>
+</head>
+<body>
+
+<div class="bg-img">
+  <div class="container">
+    <div class="topnav">
+      <img src="{% static 'images/logo.png' %}" alt="img4" style="width:18%">
+      <a href="{% url 'captcha' %}"><i class="fa fa-power-off"></i> LOGOUT</a>
+         <a href="{% url 'viewcarsinadmin' %}"><i class="fa fa-trash"></i> REMOVE CAR</a>
+       <a href="{% url 'addcar' %}"><i class="fa fa-plus"></i> ADD CAR</a>
+              <a href="{% url 'viewquery' %}"><i class="fa fa-phone"></i> QUERIES</a>
+
+         <a href="{% url 'viewbookings' %}"><i class="fa fa-book"></i>BOOKINGS</a>
+      <a href="{% url 'viewusers' %}"><i class="fa fa-users"></i> USERS</a>
+      <a href="{% url 'adminhome' %}"><i class="fa fa-fw fa-home"></i>HOME</a>
+    </div>
+  </div>
+    <br><br>
+    <br><br>
+    <br><br>
+
+    <center><font size="6" color="white" face=" "> <u>Registered Users :</u></font></center>
+    <br><br>
+
+    <div class="center">
+        <table id="tablecolor">
+            <tr bgcolor="#000000" align="center">
+                <th>ID</th>
+                <th >FULL NAME</th>
+                <th>EMAIL ID</th>
+                <th>CONTACT NO</th>
+                <th>REGISTRATION TIME </th>
+                <th>ACTION</th>
+            </tr>
+            {% for user in users %}
+            <tr style="font-weight:bold" bgcolor="white" align="center">
+                <td>{{user.id}}</td>
+                <td>{{user.fullname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.contact}}</td>
+                <td>{{user.registrationtime}}</td>
+                <td>
+
+                    <a href="/deleteuser/{{user.id}}" class="button"><i class='fa fa-trash-o white-color' style="font-size: 2em;"></i></a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</body>
+</html>

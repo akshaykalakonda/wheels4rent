@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  background-image: url('{% static "images/bgblack.jpg" %}');
+}
+body {font-family: Arial, Helvetica, sans-serif}
+
+html {
+  box-sizing: border-box;margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.checked {
+  color: orange;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 22.0%;
+  margin-bottom: 16px;
+  margin-left: 35px;
+  padding: 0 8px;
+}
+
+
+.card {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  height: 430px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.about-section {
+
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.ccontainer {
+  padding: 0 16px;
+  margin: 0px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 12px;
+  color: white;
+  background-color: red;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 40px;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 40%;
+    display: block;
+  }
+}
+.container {
+  position: fixed;
+  margin: 0px;
+  width: 100%;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #FBFBF9;
+  margin:0px;
+}
+
+/* Navbar links */
+.topnav a {
+  float: right;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin:10px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="topnav">
+      <img src="{% static 'images/logo.png' %}" alt="img4" style="width:18%">
+      <a href="{% url 'captcha' %}"><i class="fa fa-power-off"></i> LOGOUT</a>
+      <a href="{% url 'viewcarsinadmin' %}"><i class="fa fa-trash"></i> REMOVE CAR</a>
+
+
+      <a href="{% url 'addcar' %}"><i class="fa fa-plus"></i> ADD CAR</a>
+              <a href="{% url 'viewquery' %}"><i class="fa fa-phone"></i> QUERIES</a>
+
+            <a href="{% url 'viewbookings' %}"><i class="fa fa-book"></i>BOOKINGS</a>
+        <a href="{% url 'viewusers' %}"><i class="fa fa-users"></i> USERS</a>
+      <a href="{% url 'adminhome' %}"><i class="fa fa-fw fa-home"></i>HOME</a>
+    </div>
+  </div>
+
+<br><br>
+<br><br>
+<br><br><br><br>
+
+{% for c in car %}
+     <div class="column">
+    <div class="card">
+      <center><img src="{{c.image.url}}" alt="Mike" style="width:100%" height="175"></center>
+      <div class="ccontainer">
+        <h2 align="center">{{c.carname}}</h2>
+        <p class="title">Car Model: {{c.carmodel}} </p>
+        <p>Price per day : {{c.price}}</p>
+        <span class="fa fa-star checked"></span>
+       <span class="fa fa-star checked"></span>
+       <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <br/><br/>
+        <a href="/removecar/{{c.id}}"><button class="button">REMOVE CAR</button></a>
+      </div>
+    </div>
+  </div>
+
+    {% endfor %}
+
+</body>
+</html>
