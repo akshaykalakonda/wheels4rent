@@ -189,13 +189,14 @@ color:#000000;
       <a href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i>HOME</a>
     </div>
       <h3 align="center" style="background-color:powderblue;">{{msg}}</h3>
-
+       </br></br></br>
 
   </div>
     <section>
 
         <div class="form-box">
             <div class="form-value">
+                <br/>
                 <form method="post" action="{% url 'customerindex' %}">
                     {% csrf_token %}
                     <h2>Login</h2>

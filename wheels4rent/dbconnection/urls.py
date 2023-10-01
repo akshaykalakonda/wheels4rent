@@ -26,7 +26,7 @@ urlpatterns=[
     path("demo2",views.proceedtopay,name="demo2"),
     path("viewbookings", views.viewbookings, name="viewbookings"),
     path("contact",views.contact,name="contact"),
-path("viewquery",views.viewquery,name="viewquery"),
+    path("viewquery",views.viewquery,name="viewquery"),
 
 ]
 if settings.DEBUG:
