@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+
+}
+body {font-family: Arial, Helvetica, sans-serif}
+
+html {
+  box-sizing: border-box;margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 22.0%;
+  margin-bottom: 16px;
+  margin-left: 35px;
+  padding: 0 8px;
+}
+
+
+.card {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  height: 485px;
+  border-radius: 15px;
+}
+
+.about-section {
+
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.ccontainer {
+  padding: 0 16px;
+  margin: 0px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 40%;
+    display: block;
+  }
+}
+.container {
+  position: fixed;
+  margin: 0px;
+  width: 100%;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #FBFBF9;
+  margin:0px;
+}
+
+/* Navbar links */
+.topnav a {
+  float: right;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin:10px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.button{
+ background-color: #000;
+  border: 1px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="topnav">
+      <img src="{% static 'images/logo.png' %}" alt="img4" style="width:18%">
+      <a href="{% url 'login' %}"><i class="fa fa-fw fa-user"></i>LOGIN</a>
+      <a href="{% url 'bookcar' %}"><i class="fa fa-car"></i> BOOK NOW</a>
+      <a href="{% url 'about' %}"><i class="fa fa-globe"></i> ABOUT</a>
+      <a href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i>HOME</a>
+    </div>
+  </div>
+<div class="about-section">
+  <br><br>
+  <h1>About Us</h1>
+  <p >Rental management software helps you manage bookings, inquiries, availability and more- all from a single platform. It allows all the users to drive the car to different</p><p>places according to the users wish and pay for the usage.
+Mostly the professionals who works on daily basis and one who travels for the long distances, it is the best choice to those people</p><p> where they can hire and drive the rented car rather than investing lakhs of money in buying a car.
+We provide innovative solutions for payments, maintenance, and channel management.</p>
+<p >Online car rental system is convenient to most of the people.
+  </p>
+  <p >
+Improved customer service</p>
+  <p >Standards for Quality</p>
+  <p >Scalability</p>
+</div>
+<br><br>
+<h1 style="text-align:center"><u>Our Collaborated Team</u></h1>
+<br><br>
+ <div class="column">
+    <div class="card">
+      <center><img src="{% static 'images/mentor.jpeg' %}" alt="John" style="width:75%"></center>
+      <div class="ccontainer">
+        <h2>Jonnalagadda Surya Kiran</h2>
+        <p class="title">Project Mentor</p>
+        <p>Contact : 8499873313</p>
+        <a href="https://www.linkedin.com/in/suryakiran1993/" target="_blank"><button class="button" ><i class="fa fa-envelope"></i> Contact</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <center><img src="{% static 'images/akki.jpeg' %}" alt="Jane" style="width:75%"></center>
+      <div class="ccontainer">
+        <h2>Kalakonda Akshay</h2>
+        <p class="title">Team Lead</p>
+        <p>Contact : 8639558161</p>
+        <p>akshaykalakonda2003@gmail.com</p>
+        <a href="https://www.linkedin.com/in/kalakonda-akshay-ab9190226/" target="_blank"><button class="button" ><i class="fa fa-envelope"></i> Contact</button></a>      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <center><img src="{% static 'images/mahi.jpeg' %}" alt="Mike" style="width:75%"></center>
+      <div class="ccontainer">
+        <h2>Boga Mahi Kiran</h2>
+        <p class="title">Team Member</p>
+        <p>Contact : 9347072613</p>
+        <p>mahikiran.b@gmail.com</p>
+        <a href="https://www.linkedin.com/in/boga-mahikiran-596585241/" target="_blank"><button class="button" ><i class="fa fa-envelope"></i> Contact</button></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <center><img src="{% static 'images/karuna.jpeg' %}" alt="Mike" style="width:75%"></center>
+      <div class="ccontainer">
+        <h2>Katam Karunakar</h2>
+        <p class="title">Team Member</p>
+        <p>Contact : 9573283162</p>
+        <p>karunakarkatam734@gmail.com</p>
+        <a href="https://www.linkedin.com/in/karunakar-katam-39a997225/" target="_blank"><button class="button" ><i class="fa fa-envelope"></i> Contact</button></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

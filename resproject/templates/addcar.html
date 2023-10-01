@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif}
+* {box-sizing: border-box;margin:0}
+
+.bg-img {
+  /* The image used */
+
+
+    min-height: 793px;
+
+  /* Center and scale the image nicely */
+  background-image: url('{% static "images/carbg.jpeg" %}');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
+}
+.form-control {
+    display: block;
+    width: 110%;
+    padding: 5px 12px;
+    font-size: 22px;
+    border-radius: 10px;
+    border: px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    resize: vertical;
+  }
+.backgroundGradient {
+        background: linear-gradient(to bottom, black,grey );
+        color: white;
+    }
+/* Position the navbar container inside the image */
+.container {
+  position: fixed;
+  margin: 0px;
+  width: 100%;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #FBFBF9;
+}
+
+/* Navbar links */
+.topnav a {
+  float: right;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin:10px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.centered {
+  position: absolute;
+
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center{
+ margin-left: 120px;
+  margin-right: 120px;
+
+}
+#tablecolor {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tablecolor td, #tablecolor th {
+  border: 2px solid #ddd;
+  padding: 2px;
+}
+
+#tablecolor tr:nth-child(even){background-color: #f2f2f2;}
+
+#tablecolor tr:hover {background-color: #ddd;}
+
+#tablecolor th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #181818;
+  color: white;
+}
+
+.white-color {
+        color:white;
+ }
+input[type=text],input[type=password],input[type=number],input[type=email],
+select,input[type=date],input[type=file]
+{
+  display: inline-block;
+  box-sizing: border-box;
+  display: block;
+    width: 80%;
+    padding: 5px 12px;
+    font-size: 22px;
+    border-radius: 10px;
+    border: px solid #000000;
+    margin-bottom: 25px;
+    resize: vertical;
+}
+
+label
+{
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-weight: bold;
+
+}
+
+ .button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 18px 2px;
+  cursor: pointer;
+}
+.centered {
+  position: absolute;
+
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+
+<div class="bg-img">
+  <div class="container">
+    <div class="topnav">
+        <img src="{% static 'images/logo.png' %}" alt="img4" style="width:18%">
+        <a href="{% url 'login' %}"><i class="fa fa-power-off"></i> LOGOUT</a>
+        <a href="{% url 'viewcarsinadmin' %}"><i class="fa fa-trash"></i> REMOVE CAR</a>
+        <a href="{% url 'addcar' %}"><i class="fa fa-plus"></i> ADD CAR</a>
+        <a href="{% url 'viewquery' %}"><i class="fa fa-phone"></i> QUERIES</a>
+        <a href="{% url 'viewbookings' %}"><i class="fa fa-book"></i>BOOKINGS</a>
+        <a href="{% url 'viewusers' %}"><i class="fa fa-users"></i> USERS</a>
+        <a href="{% url 'adminhome' %}"><i class="fa fa-fw fa-home"></i>HOME</a>
+        </div>
+         <h3 align="center" style="background-color:powderblue;">{{msg}}</h3>
+        </div>
+    <br><br>
+    <br><br>
+            <center><font size="9" color="white" face=" "> <u>Enter Car Details :</u></font></center>
+    <div class="centered">
+        <div class="backgroundGradient">
+            <div class="form-value">
+                <form method = "post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {{field.label}}{{field}}
+                    {% endfor %}
+                    <br/>
+                    <button type="submit" class="button">ADD CAR</button>
+                </form>
+                <div/>
+            </div>
+        </div>
+    </div>
+  </div>
+    <br><br>
+    <br><br>
+    <br><br>
+
+
+    </div>
+</div>
+</body>
+</html>

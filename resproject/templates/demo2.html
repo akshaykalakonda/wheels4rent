@@ -1,0 +1,283 @@
+{% load static %}
+<html>
+  <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+    <title>Booking Form</title>
+       <style>
+       .topnav a {
+  float: right;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin:10px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.centered {
+  position: absolute;
+
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.dropdown {
+  float: right;
+  overflow: hidden;
+  font-size: 17px;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+       body {font-family: Arial, Helvetica, sans-serif}
+* {box-sizing: border-box;margin:0}
+ h2 {
+    color: white;
+  }
+body {
+  /* The image used */
+  background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDxUNDQ0VDQ0NFRUNDQ0VFRcVDw0NFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zOD8tNygtLisBCgoKDQ0NFg8PFSsZEx0rKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAABAgADBQf/xAApEAEBAQAABQEGBwAAAAAAAAAAARECAwRBUwYFIYOR0/ATFkNRgaOx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APi5BBjGIMoEGioIYBMYwGVIIqA0hkaEGxsOHAGNisbAGNisbATgxWNgJwYrBYCbBirACU2LFBFgqqKCaFUUE0KqQAUASFAAWIMYFAyoIYBMCoBhgioBhjQyA0VI0ipAEOHDIAkOHGwBjYrGwE2CxeCwEYKuwWAgVWCwEUVdibARRVYKCaFVNBNCqKCQoAkFgBBAmCGAYRFAYYFQDFQQwDFQRUAxQioDYqRoYDNimAY2KjYCcTjpQCLE2LooIqaupoJqaupoIqaupoJoqqmgkVSQANFAUGgAQQMMBgKhiYqAqGCGAqKiYqAqKiYqAqKkTFgYqQRUBpDjQ4DY2Fs+/cCbBYr77DATYmxVFBFTV1NBNTVVNBNTVVNBNFNFBNBooJoNACg0ACIQJgMAqiYqAqGJioC4YmKgKiomLgKiomKgKikxQKhEUDMzABSKCaKqpoITV1FBNTVVNBNTVVNBNFVU0E0U0UE0GgACAEYECqJVAJghBUVEwwFxURFQFxURFQFxcRKqUFxURFSguFMp0CzaNApOjQFTTakBU02poCppqaAqaamgKmqqaAopqaAoIAAgEkRgUYmKgGKiYQVFRMMBcMTDAXFxzioDpFRzipQdIqVzipQWUadBesnRoKFGjQNTWtToNU0poCitU0GqaamgKK1ACilNBqGABmAJIIEwGAYpMIKhiYYCzEmAuVURFQFyqlc5VSguVWolOgvTqNbQXranW0FaNGjQNo0WjQa0WtakGtTTanQa1NNTQappoACsKDBgDBgAYECYDAJSoCYIYCimHQXDKhUBUVKjTKC5TqJTKC9Oo1tBenUa2grRo0aCtGp1tA2p1tGg1AtFoNRWANQwBhWAMGAMGYEkMBIIEpIKMSYCjqSCtMSQVqtQQVKdTrQF62p1tBetqNbQXo1OtoHW1OtoHRaNAG0Wi0UCGAMGAMGAMzAGDMCSzAxZgLFgYswEswFmYCdZgOtrMB1tZgbW1mBtbWYBrazANbQwNotZgDMwB6PsX2Lzeu4uLh5N4eH8KTi47xW5luSScMtt91Zget+Rer8vJ+fM+mL6F6vycr+36bMCb6H6rycv5c3988bX0N1U/U5Xfy9vhswNfQvV+TldvL3+GqegesvvnN5P88XMn+8DMD//2Q==");
+
+  min-height: 753px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
+}
+      /* Style for the form container */
+      .container {
+        width: 50%;
+        margin: 3 auto;
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 19px;
+        font-family: Arial, sans-serif;
+      }
+.checked {
+  color: gold;
+}
+      /* Style for form input fields */
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="number"],
+      input[type="date"],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        font-size: 21px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: transparent;
+        color: white;
+      }
+
+
+
+      /* Style for the submit button when disabled */
+      input[type="submit"]:disabled {
+        background-color: #ddd;
+        color: #555;
+        cursor: not-allowed;
+      }
+.input {
+    font-size: 21px;
+    color:white
+  }
+
+
+      /* Style for the labels */
+      label {
+        display: inline-block;
+         font-size: 18px;
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: white;
+      }
+
+      /* Style for the select dropdown */
+      select {
+        background-color: #1E1E1E;
+        color: white;
+      }
+
+      /* Style for the date picker */
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        color: black;
+      }
+      input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for the submit button when disabled */
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 12px;
+  color: white;
+  background-color: green;
+  text-align: center;
+  cursor: pointer;
+  width: 40%;
+  border-radius: 50px;
+}
+
+
+
+input[type="date"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+/* Style for the "Proceed to Payment" button when disabled */
+button[type="submit"]:disabled {
+  background-color: #ddd;
+  color: #555;
+  cursor: not-allowed;
+}
+.ccontainer {
+  position: fixed;
+  margin: 0px;
+  width: 100%;
+
+}
+.topnav {
+  overflow: hidden;
+  background-color: #FBFBF9;
+  margin:0px;
+}
+    </style>
+  </head>
+  <body>
+  <div class="ccontainer">
+    <div class="topnav">
+      <img src="{% static 'images/logo.png' %}" alt="img4" style="width:18%">
+      <div class="dropdown">
+            <a href="" ><i class="fa fa-user-circle"></i> PROFILE <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="{% url 'changepassword' %}"><i class="fa fa-key"></i> CHANGE PASSWORD</a>
+                 <a href="{% url 'login' %}"><i class="fa fa-power-off"></i> LOGOUT</a>
+
+            </div>
+        </div>
+      <a href="{% url 'bookcaruser' %}"><i class="fa fa-car"></i> BOOK NOW</a>
+        <a href="{% url 'contact' %}"><i class="fa fa-phone"></i> CONTACT</a>
+      <a href="{% url 'userhome' %}"><i class="fa fa-fw fa-home"></i>HOME</a>
+    </div>
+      <h3 align="center" style="background-color:powderblue;">{{msg}}</h3>
+  </div>
+  <br/><br/><br/><br/><br/>
+    <div class="container">
+
+<h2 align="left"><u>ORDER SUMMARY :</u></h2>
+        <br/>
+    <h2>Number of Days : {{ num_days }}</h2><br/>
+    <h2>Price/day = ₹ {{ car.price }}</h2><br/>
+    <h2>Total Amount = ₹<span id="total_amount"></span></h2>
+        </br></br>
+    <button onclick="pay({{ num_days }} * {{ car.price }})" class="button">PROCEED FOR PAYMENT</button>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script><br>
+
+</div>
+  </div>
+
+</div>
+  </body>
+<script>
+    var num_days = {{ num_days }};
+    var price_per_day = {{ car.price }};
+    var total_amount = num_days * price_per_day;
+    document.getElementById("total_amount").innerHTML = total_amount;
+</script>
+<script>
+    function pay(amt) {
+  var options = {
+    "key": "rzp_test_KTwnx4fuZ0Wy80",
+    "amount": amt*100,
+    "currency": "INR",
+    "paymentId":"https://rzp.io/i/fV5ARk9JQ",
+    "Offer id":"https://dashboard.razorpay.com/app/offers/offer_LR161fzQOYab5q",
+    "name": "Wheels4rent Payment",
+    "description": "Payment for Order No: 1234",
+    "image": "{% static 'images/favicon.ico' %}",
+   "handler": function (response) {
+      var paymentId = response.razorpay_payment_id;  // get the payment ID from the response object
+      window.location.href = "{% url 'payment-success'  %}?payment_id=" + paymentId;
+    },
+    "prefill": {
+        "name": "",
+        "email": "",
+        "contact": "+"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#808000"
+    }
+  };
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+}
+
+</script>
